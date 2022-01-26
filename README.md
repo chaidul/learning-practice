@@ -1,2 +1,2 @@
 # learning-practice
-This project is designed for learning and practice.
+This repo is designed for learning and practice.
