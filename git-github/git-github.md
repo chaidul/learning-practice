@@ -74,7 +74,7 @@ git pull | git pull --rebase origin <branch-name>
 ```
 
 ## how to add ssh auth key
-[check](/add-ssh.md)
+[check](git-github/add-ssh.md)
 
 
 
