@@ -22,6 +22,15 @@ git clone --single-branch --branch master git@github.com:chaidul/learning-practi
 
 
 ```
+### Git ignore 
+```bash
+editor .gitignore  #create git ignore file and add ignore file
+#example :
+ index.html
+ about.html
+ .gitignore
+
+```
 #### git start
 ```bash
 mkdir Git-dir
