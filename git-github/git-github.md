@@ -14,6 +14,14 @@ git --version
 git config --global user.name Chaidul
 git config --global user.email technicalgyanassam@gmail.com
 ```
+### Git clone 
+```bash
+git clone git@github.com:chaidul/learning-practice.git   #clone repo
+
+git clone --single-branch --branch master git@github.com:chaidul/learning-practice.git   #clone single branch
+
+
+```
 #### git start
 ```bash
 mkdir Git-dir
