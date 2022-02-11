@@ -12,3 +12,5 @@ var json_array = [
 ]
 const result2 = json_array.find(x=>x.id===4);
 console.log(result2);
+/*find function output only one data*/
+
