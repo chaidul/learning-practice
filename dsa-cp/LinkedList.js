@@ -60,7 +60,17 @@ class LinkedList {
 		
 	}
 
-	
+	// removeFrom index
+	removeFrom(index){
+		if(index==0){
+			console.log("empty linkedList")
+		}
+		var prevNode = this.head
+		for(var i=0;i<index-1;i++){
+			prevNode  = prevNode.next
+		}
+		prevNode.next = prevNode.next.next
+	}
     
 
     //Print List
@@ -85,4 +95,5 @@ ll.addNode(6)
 ll.addNode(7)
 ll.addNode(9)
 ll.insert(8,3)
+ll.removeFrom(2)
 ll.print()
