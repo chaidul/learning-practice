@@ -71,7 +71,28 @@ class LinkedList {
 		}
 		prevNode.next = prevNode.next.next
 	}
-    
+
+    //remove element
+    removeEle(ele){
+    	if(this.head==null){
+    		console.log("empty linkedList");
+    	}
+    	var curNode = this.head
+    	var prev = null
+    	while(curNode !=null){
+    		if(curNode.element === ele){
+    			if(prev==null){
+    				this.head = curNode.next
+    			}else{
+    				prev.next = curNode.next
+    			}
+    			return curNode.element
+    		}
+    		prev = curNode
+    		curNode = curNode.next
+    	}
+    	
+    }
 
     //Print List
     print(){
@@ -96,4 +117,5 @@ ll.addNode(7)
 ll.addNode(9)
 ll.insert(8,3)
 ll.removeFrom(2)
+ll.removeEle(6)
 ll.print()
