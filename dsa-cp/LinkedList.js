@@ -1,3 +1,9 @@
+/*
+LinkedList algorithm in javascript
+2 -> 3 -> 4 -> 5 -> 6
+
+*/
+
 // User defined class node
 class Node{
 	constructor(element){
@@ -37,6 +43,26 @@ class LinkedList {
     	this.size++
     }
 
+	//insert element 
+	insert(element,index){
+		const newNode = new Node(element);
+		if(index==0){
+			newNode.next = this.head;
+			this.head = newNode
+		}
+		var prevNode = this.head
+		for(var i=0;i<index-1;i++){
+			prevNode = prevNode.next
+		}
+		newNode.next = prevNode.next
+		prevNode.next = newNode
+		
+		
+	}
+
+	
+    
+
     //Print List
     print(){
     	let temp = this.head
@@ -57,4 +83,6 @@ const ll =new LinkedList()
 ll.addNode(5)
 ll.addNode(6)
 ll.addNode(7)
+ll.addNode(9)
+ll.insert(8,3)
 ll.print()
