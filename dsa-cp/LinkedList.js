@@ -93,19 +93,27 @@ class LinkedList {
     	}
     	
     }
-
+    //reverse LinkedList  
+	reverse(){
+		let cur = this.head,
+		prev,
+		temp
+		while(cur){
+			temp = cur.next
+			cur.next = prev
+			prev = cur
+			cur = temp
+		}
+		return prev
+	}
+	
     //Print List
-    print(){
-    	let temp = this.head
-		let str =""
-    	while(temp){
-    		str =str + '' + temp.getValue()
-    		if(temp.getNext()){
-    			str = str + " -> "
-    		}
-    		temp = temp.getNext()
-    	}
-    	console.log(str)
+    print(node=this.head){
+    while(node != null){
+    	console.log(node.element)
+    	node = node.next
+    }
+    	
     }
     
 }
@@ -116,6 +124,7 @@ ll.addNode(6)
 ll.addNode(7)
 ll.addNode(9)
 ll.insert(8,3)
-ll.removeFrom(2)
-ll.removeEle(6)
-ll.print()
+//ll.removeFrom(2)
+//ll.removeEle(6)
+const head = ll.reverse()
+ll.print(head)
