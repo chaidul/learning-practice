@@ -15,6 +15,17 @@ class Linkedlist{
 		this.tail=null;
 		this.size=null;
 	}
+
+	push(data){
+		var node = new Node(data)
+		node.next=this.head
+		node.prev=null
+		if(this.head != null){
+			this.head.prev=node
+		}
+		this.head=node
+	}
+
 	
 	add(data){
 		var node = new Node(data)
@@ -44,6 +55,7 @@ class Linkedlist{
 }
 
 const ll = new Linkedlist
+ll.push(0)
 ll.add(1)
 ll.add(2)
 ll.add(3)
