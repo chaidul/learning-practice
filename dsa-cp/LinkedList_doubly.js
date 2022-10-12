@@ -15,7 +15,7 @@ class Linkedlist{
 		this.tail=null;
 		this.size=null;
 	}
-
+	//push element from head
 	push(data){
 		var node = new Node(data)
 		node.next=this.head
@@ -26,7 +26,7 @@ class Linkedlist{
 		this.head=node
 	}
 
-	
+	//add new node
 	add(data){
 		var node = new Node(data)
 		var last = this.head
@@ -45,10 +45,29 @@ class Linkedlist{
 
 	insert(data,index){
 		var node = new Node(data)
+		var temp = this.head
+		if(index==0){
+		   	node.next = this.head
+		    node.prev=null
+			 this.head = node
+			 return		
+		}
+		for(var i=0;i<index;i++){
+			if(i==index-1){
+				node.next = temp.next
+				node.prev = temp
+				temp.next.prev = node
+				temp.next = node				
+				return
+			}
+			
+			temp = temp.next
+		}
 		
 		
 		
 	}
+	//remove element/node
 	remove(ele){
 		var temp = this.head
 		if(temp == null){
@@ -94,5 +113,5 @@ ll.add(5)
 ll.add(6)
 ll.add(7)
 ll.remove(7)
-//ll.insert(3,3)
+ll.insert(3,3)
 ll.print()
