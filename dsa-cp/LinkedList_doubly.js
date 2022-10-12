@@ -43,7 +43,38 @@ class Linkedlist{
 		node.prev = last
 	}
 
-
+	insert(data,index){
+		var node = new Node(data)
+		
+		
+		
+	}
+	remove(ele){
+		var temp = this.head
+		if(temp == null){
+			console.log("empty linkedlist")
+		}
+		while(temp !=null){
+			if(temp.data == ele){
+				if(temp.prev == null){
+						this.head = this.head.next
+						this.head.prev = null
+						return
+					
+				}
+				if(temp.next != null){
+					temp.prev.next = temp.next
+					temp.next.prev = temp.prev
+					return
+				}
+				temp.prev.next = temp.next
+				return
+					
+				
+			}
+			temp = temp.next
+		}
+	}
 
 	print(head=this.head){
 		while(head != null){
@@ -58,7 +89,10 @@ const ll = new Linkedlist
 ll.push(0)
 ll.add(1)
 ll.add(2)
-ll.add(3)
 ll.add(4)
 ll.add(5)
+ll.add(6)
+ll.add(7)
+ll.remove(7)
+//ll.insert(3,3)
 ll.print()
