@@ -34,6 +34,7 @@ class Linkedlist{
 		if(this.head==null){
 			node.prev = null
 			this.head=node
+			this.tail = node
 			return
 		}
 		while(last.next != null){
@@ -41,6 +42,7 @@ class Linkedlist{
 		}
 		last.next = node
 		node.prev = last
+		this.tail = node
 	}
 
 	insert(data,index){
@@ -87,6 +89,7 @@ class Linkedlist{
 					return
 				}
 				temp.prev.next = temp.next
+				this.tail = temp.prev
 				return
 					
 				
@@ -99,6 +102,14 @@ class Linkedlist{
 		while(head != null){
 			console.log(head.data)
 			head = head.next
+		}
+	}
+
+	// linkedlist display reverse
+	display_reverse(tail = this.tail){
+		while(tail !=null){
+			console.log(tail.data)
+			tail = tail.prev
 		}
 	}
 	
@@ -114,4 +125,5 @@ ll.add(6)
 ll.add(7)
 ll.remove(7)
 ll.insert(3,3)
-ll.print()
+//ll.print()
+ll.display_reverse()
