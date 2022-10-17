@@ -46,6 +46,30 @@ class LinkedList {
     	}
     	this.size++
     }
+
+    //insert node/element 
+    insert(data,index){
+    	const newNode = new Node(data);
+    	if(index==0){
+    		newNode.next = this.head
+    		this.head = newNode
+    		this.tail.next = this.head
+    		return
+    		this.size++
+    	}
+    	var prevNode = this.head
+    	for(var i=0;i<index-1;i++){
+    		prevNode = prevNode.next
+    	}
+    	if(prevNode.next.element == this.head.element){
+    		this.tail = newNode
+    	}
+    	newNode.next = prevNode.next
+    	prevNode.next = newNode
+    	return
+    	
+    	
+    }
 	
     //Print List
     print(node=this.head){
@@ -55,6 +79,12 @@ class LinkedList {
     }while(node!=this.head)
     	
     }
+
+    //test function
+    test(node=this.head){
+    	var tail = this.tail
+    	//console.log(tail.next.element)
+    }
     
 }
 
@@ -63,4 +93,6 @@ ll.addNode(5)
 ll.addNode(6)
 ll.addNode(7)
 ll.addNode(9)
+ll.insert(4,4)
 ll.print()
+//ll.test()
