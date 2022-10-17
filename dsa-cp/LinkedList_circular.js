@@ -66,6 +66,7 @@ class LinkedList {
     	}
     	newNode.next = prevNode.next
     	prevNode.next = newNode
+    	this.size++
     	return
     	
     	
