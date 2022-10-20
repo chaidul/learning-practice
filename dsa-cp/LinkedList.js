@@ -36,11 +36,13 @@ class LinkedList {
     	const newNode = new Node(node)
     	if(this.size==0){
     		this.head = this.tail = newNode
+    		this.size++
     	}else{
     		this.tail.next = newNode
     		this.tail = newNode
+    		this.size++
     	}
-    	this.size++
+    
     }
 
 	//insert element 
@@ -49,6 +51,8 @@ class LinkedList {
 		if(index==0){
 			newNode.next = this.head;
 			this.head = newNode
+			this.size++
+			return
 		}
 		var prevNode = this.head
 		for(var i=0;i<index-1;i++){
@@ -56,6 +60,8 @@ class LinkedList {
 		}
 		newNode.next = prevNode.next
 		prevNode.next = newNode
+		this.size++
+		return
 		
 		
 	}
@@ -70,6 +76,7 @@ class LinkedList {
 			prevNode  = prevNode.next
 		}
 		prevNode.next = prevNode.next.next
+		this.size--
 	}
 
     //remove element
@@ -90,8 +97,23 @@ class LinkedList {
     		}
     		prev = curNode
     		curNode = curNode.next
+    		this.size--
     	}
     	
+    }
+    //remove from nth to n Node
+    removeNth(n){
+    	var index=this.size-n
+    	var temp = this.head 
+    	for(var i=0;i<index;i++){
+    		if(i==index-1){
+    			temp.next = temp.next.next
+    			this.size--
+    			return	
+    		}
+    		temp = temp.next
+    	}
+    	return
     }
     //reverse LinkedList  
 	reverse(){
@@ -109,6 +131,7 @@ class LinkedList {
 	
     //Print List
     print(node=this.head){
+    console.log(`size : ${this.size}`)
     while(node != null){
     	console.log(node.element)
     	node = node.next
@@ -126,5 +149,6 @@ ll.addNode(9)
 ll.insert(8,3)
 //ll.removeFrom(2)
 //ll.removeEle(6)
-const head = ll.reverse()
-ll.print(head)
+//const head = ll.reverse()
+ll.removeNth(3)
+ll.print()
