@@ -1,5 +1,6 @@
+
 /*
-Binary Tree imData-Structure in javascript
+Binary Tree Data-Structure in javascript
 */
 
 class Node{
@@ -26,9 +27,19 @@ class BinaryTree{
 		}
 		return node
 	}
+
+	preOrder(root){
+		if(root == null){
+			console.log(-1)
+			return
+		}
+		console.log(root.data)
+		this.preOrder(root.left)
+		this.preOrder(root.right)
+	}
 }
 
 var nodes = [1,2,-1,-1,3,-1,4,-1,-1]
 var tree = new BinaryTree
 var root = tree.buildTree(nodes)
-console.log(root)
+tree.preOrder(root)
