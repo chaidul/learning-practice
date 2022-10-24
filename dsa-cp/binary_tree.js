@@ -28,6 +28,7 @@ class BinaryTree{
 		return node
 	}
 
+	//Binary Tree Traversal
 	preOrder(root){
 		if(root == null){
 			console.log(-1)
@@ -37,9 +38,26 @@ class BinaryTree{
 		this.preOrder(root.left)
 		this.preOrder(root.right)
 	}
+
+	inOrder(root){
+		if(root == null){
+			 console.log(-1)
+		      return
+		 }
+		this.inOrder(root.left)
+		console.log(root.data)
+		this.inOrder(root.right)
+	}
+
+	postOrder(root){
+		
+	}
+
+	
 }
 
 var nodes = [1,2,-1,-1,3,-1,4,-1,-1]
 var tree = new BinaryTree
 var root = tree.buildTree(nodes)
-tree.preOrder(root)
+//tree.preOrder(root)
+tree.inOrder(root)
