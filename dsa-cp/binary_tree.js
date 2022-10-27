@@ -50,7 +50,13 @@ class BinaryTree{
 	}
 
 	postOrder(root){
-		
+		if(root == null){
+			console.log(-1)
+		     return
+		  }
+		  this.postOrder(root.left)
+		  this.postOrder(root.right)
+		  console.log(root.data)
 	}
 
 	
@@ -60,4 +66,5 @@ var nodes = [1,2,-1,-1,3,-1,4,-1,-1]
 var tree = new BinaryTree
 var root = tree.buildTree(nodes)
 //tree.preOrder(root)
-tree.inOrder(root)
+//tree.inOrder(root)
+tree.postOrder(root)
