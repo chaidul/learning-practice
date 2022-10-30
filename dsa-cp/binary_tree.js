@@ -59,6 +59,14 @@ class BinaryTree{
 		  console.log(root.data)
 	}
 
+	height(root){
+		if(root==null){
+			return 0
+		}
+		return this.height(root.left) + this.height(root.right) + 1
+		
+	}
+
 	
 }
 
@@ -67,4 +75,6 @@ var tree = new BinaryTree
 var root = tree.buildTree(nodes)
 //tree.preOrder(root)
 //tree.inOrder(root)
-tree.postOrder(root)
+//tree.postOrder(root)
+var height = tree.height(root)
+console.log(height)
