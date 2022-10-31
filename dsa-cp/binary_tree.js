@@ -63,7 +63,9 @@ class BinaryTree{
 		if(root==null){
 			return 0
 		}
-		return this.height(root.left) + this.height(root.right) + 1
+		var lh = this.height(root.left)
+		var rh = this.height(root.right)
+		return Math.max(lh,rh)+1
 		
 	}
 
