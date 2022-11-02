@@ -89,6 +89,21 @@ class BinaryTree{
 		
 	}
 
+	leftView(root){
+		var level = this.height(root)
+		this.leftViewUtil(root,level)
+	}
+	max_level = 0
+	leftViewUtil(root,level){
+		if(root==null) return null;
+		if(this.max_level<level){
+			console.log(root.data)
+			this.max_level = level
+		}
+		this.leftViewUtil(root.left,level+1)
+		this.leftViewUtil(root.right,level+1)
+	}
+
 	
 }
 
@@ -99,4 +114,5 @@ var root = tree.buildTree(nodes)
 //tree.inOrder(root)
 //tree.postOrder(root)
 // /var height = tree.height(root)
-tree.levelOrder(root)
+//tree.levelOrder(root)
+tree.leftView(root)
