@@ -69,6 +69,26 @@ class BinaryTree{
 		
 	}
 
+	levelOrder(root){
+		var h = this.height(root)
+		for(var i=1;i<=h;i++){
+			this.printCurrentLevel(root,i)
+			
+		}
+	}
+
+	printCurrentLevel(root,level){
+		if(root==null) return null;
+		if(level==1){
+			console.log(root.data)
+		}
+		else if(level>1){
+			this.printCurrentLevel(root.left,level-1)
+			this.printCurrentLevel(root.right,level-1)
+		}
+		
+	}
+
 	
 }
 
@@ -78,5 +98,5 @@ var root = tree.buildTree(nodes)
 //tree.preOrder(root)
 //tree.inOrder(root)
 //tree.postOrder(root)
-var height = tree.height(root)
-console.log(height)
+// /var height = tree.height(root)
+tree.levelOrder(root)
