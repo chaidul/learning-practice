@@ -118,9 +118,21 @@ class BinaryTree{
 		this.rightViewUtil(root.right,level+1)
 	    this.rightViewUtil(root.left,level+1)
 	}
+
+	diameter(root){
+		if(root==null){
+			return null
+		}
+		var lh = this.height(root.left)
+		var rh = this.height(root.right)
+		var ld = this.diameter(root.left)
+		var rd = this.diameter(root.right)
+		return Math.max(lh+rh+1,Math.max(ld,rd))
+	}
+	
 }
 
-var nodes = [1,2,-1,-1,3,-1,4,-1,-1]
+var nodes = [1,2,-1,-1,3,-1,4,5,-1,-1,6,-1,-1]
 var tree = new BinaryTree
 var root = tree.buildTree(nodes)
 //tree.preOrder(root)
@@ -129,4 +141,6 @@ var root = tree.buildTree(nodes)
 // /var height = tree.height(root)
 //tree.levelOrder(root)
 //tree.leftView(root)
-tree.rightView(root)
+//tree.rightView(root)
+var diameter = tree.diameter(root)
+console.log(diameter)
