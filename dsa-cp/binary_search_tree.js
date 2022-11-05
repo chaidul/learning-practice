@@ -33,6 +33,18 @@ class BST{
 		this.inOrder(root.right)
 		
 	}
+
+	search(root,x){
+		if(root==null) return false;
+		if(root.data==x) {
+			console.log(root)
+			return;
+		}
+		if(root.data > x){
+			return this.search(root.left,x)
+		}
+		return this.search(root.right,x)
+	}
 	
 }
 
@@ -50,3 +62,4 @@ bst.insert(root,9)
 
 /*BST inOrder traversal always display sorted nodes*/
 bst.inOrder(root)
+bst.search(root,4)
