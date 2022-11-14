@@ -12,6 +12,9 @@ class Node{
 }
 
 class BST{
+	constructor(){
+		this.arr = []
+	}
 	
 	insert(root,data){
 		if(root==null){
@@ -25,11 +28,11 @@ class BST{
 		}
 		return root
 	}
-
+	
 	inOrder(root){
 		if(root==null) return null;
 		this.inOrder(root.left)
-		console.log(root.data)
+		this.arr.push(root.data)
 		this.inOrder(root.right)
 		
 	}
@@ -74,6 +77,26 @@ class BST{
 		}
 		return root
 	}
+
+/*----------------------------------------*/
+	isBst(root){
+		for(var i=0;i<this.arr.length-1;i++){
+			if(this.arr[i]>this.arr[i+1]){
+				return false
+			}
+			return true
+		}
+
+		
+	}
+
+
+
+
+
+/*----------------------------------------*/
+
+	
 	
 }
 
@@ -89,9 +112,11 @@ bst.insert(root,7)
 bst.insert(root,8)
 bst.insert(root,9)
 
-bst.deleteNode(root,5)
+//bst.deleteNode(root,5)
 /*BST inOrder traversal always display sorted nodes*/
 bst.inOrder(root)
 
 //bst.search(root,4)
 
+var isBst = bst.isBst(root)
+console.log(isBst)
