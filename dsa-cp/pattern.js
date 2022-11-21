@@ -28,4 +28,17 @@ function hollow(row,col){
 	}
 }
 
-hollow(6,6)
+//hollow(6,6)
+
+function rightTriangle(n){
+	for(var i=1;i<=n;i++){
+		let star =""
+		for(var j=1;j<=i;j++){
+				star +="*"
+		}
+		console.log(star)
+	}
+}
+
+
+rightTriangle(5)
