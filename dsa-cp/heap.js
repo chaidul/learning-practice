@@ -29,8 +29,35 @@ class Heap{
 		}
 	}
 
+
+	heapify(arr,n,i){
+		let large = i
+		let l= 2*i
+		let r=2*i+1
+		if(l<n && arr[l]> arr[large]){
+			large=l
+		}
+		if(r<n && arr[r]> arr[large]){
+			large=r
+		}
+		if(large !=i){
+			this.swap(arr,i,large)
+			this.heapify(arr,n,large)
+		}
+		
+	}
+	remove(arr,n){
+		arr[1]=arr[n]
+		arr.pop()
+		n=n-1
+		var i=1
+
+		this.heapify(arr,n,i)
+		
+	}
+
 	display(){
-		console.log(this.arr)
+		return this.arr
 	}
 	
 }
@@ -41,6 +68,16 @@ heap.insert(4)
 heap.insert(5)
 heap.insert(3)
 heap.insert(1)
+heap.insert(6)
 heap.insert(2)
 
-heap.display()
+var arr = heap.display()
+var n = arr.length-1
+console.log(arr)
+
+ heap.remove(arr,n)
+//arr = heap.display()
+//heap.remove(arr,n-1)
+
+arr = heap.display()
+console.log(arr)
