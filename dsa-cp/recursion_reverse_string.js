@@ -8,9 +8,12 @@ const reverseHelper = function(s,first,last){
 	s[first]=s[last];
 	s[last]=temp
 	reverseHelper(s,first+1,last-1);
+	
 }
 const reverseString = function(s){
-	  reverseHelper(s,0,s.length-1);	
+	reverseHelper(s,0,s.length-1);	
+	console.log(s)
 }
 
 reverseString("chaidul");
+
